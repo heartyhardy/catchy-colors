@@ -3,17 +3,42 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-height: 15vh;
-    max-width: 15vh;
-    height: 15vh;
-    widows: 15vh;
+    max-height: 12.5vh;
+    max-width: 12.5vh;
+    height: 12.5vh;
+    widows: 12.5vh;
     margin: 1rem;
     border-radius: 50%;
-    border: .75rem solid snow;
-    box-shadow: 0 .1rem .5rem #0000007e;
+    border: .5rem solid snow;
+    box-shadow: 0 .1rem .5rem #00000046;
 }
 
 .color-hex {
     font-size: .75rem;
     color: black;
+}
+
+@media only screen and (max-width:1024px){
+    .colorslot-main{
+        height: 10vh;
+        width: 10vh;
+        border-width: .45rem;
+    }
+
+    .color-hex{
+        font-size: .65rem;
+    }
+}
+
+@media only screen and (max-width:600px){
+    .colorslot-main{
+        height: 8.5vh;
+        width: 8.5vh;
+        border-width: .35rem;
+        box-shadow: 0 .1rem .3rem #00000046;
+    }
+
+    .color-hex{
+        font-size: .5rem;
+    }
 }
