@@ -11,13 +11,20 @@ const HuePicker = props => (
         >
             0
         </p>
-        
+
         <input
             className="hue-range"
             type="range"
             min="0"
             max="360"
         />
+
+        <p
+            className="hue-range-indictor"
+        >
+            360
+        </p>
+
     </Aux>
 )
 
