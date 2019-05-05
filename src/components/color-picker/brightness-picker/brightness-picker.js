@@ -17,6 +17,8 @@ const BrightnessPicker = props => (
             type="range"
             min="0"
             max="100"
+            value={props.brightness}
+            onChange={props.valueChanged}
         />
 
         <p
@@ -24,6 +26,16 @@ const BrightnessPicker = props => (
         >
             100
         </p>
+
+        <input
+            className="brightness-specific-value"
+            type="number"
+            min="0"
+            max="100"
+            value={props.brightness}
+            onChange={props.valueChanged}
+        />
+
     </Aux>
 )
 

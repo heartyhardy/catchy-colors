@@ -8,10 +8,22 @@ import BrightnessPicker from './brightness-picker/brightness-picker';
 const ColorPicker = props => {
 
     const [hue, setHue] = useState(0);
+    const [saturation, setSaturation] = useState(0);
+    const [brightness, setBrightness] = useState(0);
 
     const onHueChanged = event => {
         const val = event.target.value;
-        setHue((val < 0 || val > 360) ? 0: val);
+        setHue((val < 0 || val > 360) ? 0 : val);
+    }
+
+    const onSaturationChanged = event => {
+        const val = event.target.value;
+        setSaturation((val < 0 || val > 100) ? 0 : val);
+    }
+
+    const onBrightnessChanged = event => {
+        const val = event.target.value;
+        setBrightness((val < 0 || val > 100) ? 0 : val);
     }
 
     return (
@@ -22,8 +34,14 @@ const ColorPicker = props => {
                 hue={hue}
                 valueChanged={onHueChanged}
             />
-            <SaturationPicker />
-            <BrightnessPicker />
+            <SaturationPicker
+                saturation={saturation}
+                valueChanged={onSaturationChanged}
+            />
+            <BrightnessPicker
+                brightness={brightness}
+                valueChanged={onBrightnessChanged}
+            />
         </Aux>
     )
 }

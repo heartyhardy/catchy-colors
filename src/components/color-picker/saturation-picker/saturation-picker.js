@@ -18,6 +18,8 @@ const SaturationPicker = props => (
             type="range"
             min="0"
             max="100"
+            value={props.saturation}
+            onChange={props.valueChanged}
         />
 
         <p
@@ -25,6 +27,15 @@ const SaturationPicker = props => (
         >
             100
         </p>
+
+        <input
+            className="saturation-specific-value"
+            type="number"
+            min="0"
+            max="100"
+            value={props.saturation}
+            onChange={props.valueChanged}
+        />
 
     </Aux>
 )
