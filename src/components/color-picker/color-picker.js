@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './color-picker.css';
 import Aux from '../hoc/auxilary';
 import HuePicker from './hue-picker/hue-picker';
@@ -7,15 +7,21 @@ import BrightnessPicker from './brightness-picker/brightness-picker';
 
 const ColorPicker = props => {
 
-    const onHueChanged = event =>{
-        console.log(event.target.value);
+    const [hue, setHue] = useState(0);
+
+    const onHueChanged = event => {
+        const val = event.target.value;
+        setHue((val < 0 || val > 360) ? 0: val);
     }
 
     return (
         <Aux
-            className=""
+            className="color-picker-main"
         >
-            <HuePicker valueChanged={onHueChanged}/>
+            <HuePicker
+                hue={hue}
+                valueChanged={onHueChanged}
+            />
             <SaturationPicker />
             <BrightnessPicker />
         </Aux>

@@ -5,6 +5,7 @@ import Aux from '../../hoc/auxilary';
 const HuePicker = props => (
     <Aux
         className="hue-picker-main"
+        style={props.style}
     >
         <p
             className="hue-range-indictor"
@@ -17,6 +18,7 @@ const HuePicker = props => (
             type="range"
             min="0"
             max="360"
+            value={props.hue}
             onChange={props.valueChanged}
         />
 
@@ -25,6 +27,15 @@ const HuePicker = props => (
         >
             360
         </p>
+
+        <input
+            className="hue-specific-value"
+            type="number"
+            min="0"
+            max="360"
+            value={props.hue}
+            onChange={props.valueChanged}
+        />
 
     </Aux>
 )
