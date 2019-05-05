@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './color-picker.css';
 import Aux from '../hoc/auxilary';
+import ColorSlot from '../color-slot/color-slot';
 import HuePicker from './hue-picker/hue-picker';
 import SaturationPicker from './saturation-picker/saturation-picker';
 import BrightnessPicker from './brightness-picker/brightness-picker';
@@ -30,15 +31,27 @@ const ColorPicker = props => {
         <Aux
             className="color-picker-main"
         >
+
+            <ColorSlot
+                hue={hue}
+                saturation={saturation}
+                brightness={brightness}
+                hexcolor="#2df3d0"
+            />
+
             <HuePicker
                 hue={hue}
                 valueChanged={onHueChanged}
             />
             <SaturationPicker
+                hue={hue}
                 saturation={saturation}
+                brightness={brightness}
                 valueChanged={onSaturationChanged}
             />
             <BrightnessPicker
+                hue={hue}
+                saturation={saturation}
                 brightness={brightness}
                 valueChanged={onBrightnessChanged}
             />

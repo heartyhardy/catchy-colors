@@ -15,6 +15,13 @@ const SaturationPicker = props => (
 
         <input
             className="saturation-range"
+            style={{
+                backgroundImage:`linear-gradient(
+                    to left,
+                    hsl(${props.hue}, ${100}%, ${props.brightness}%),
+                    hsl(${props.hue}, ${0}%, ${props.brightness}%)
+                )`
+            }}
             type="range"
             min="0"
             max="100"

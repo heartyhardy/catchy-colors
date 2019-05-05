@@ -14,6 +14,13 @@ const BrightnessPicker = props => (
 
         <input
             className="brightness-range"
+            style={{
+                backgroundImage:`linear-gradient(
+                    to left,
+                    hsl(${props.hue}, ${props.saturation}%, ${100}%),
+                    hsl(${props.hue}, ${props.saturation}%, ${0}%)
+                )`
+            }}
             type="range"
             min="0"
             max="100"
