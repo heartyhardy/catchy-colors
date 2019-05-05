@@ -4,8 +4,8 @@
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    width: 20vw;
-    height: 5vh;
+    width: 90%;
+    height: 2rem;
 }
 
 .hue-range-indictor{
@@ -38,8 +38,6 @@
     border-radius: .5rem;
     border: .25rem solid ivory;
     cursor: pointer;
-    filter: grayscale(75%);
-    transition: all 1.5s linear;
 }
 
 .hue-range::-webkit-slider-thumb {
@@ -54,10 +52,9 @@
     cursor: pointer;
 }
 
-.hue-range:focus::-webkit-slider-runnable-track {
-    filter: grayscale(0%);
-    transition: all 1.5s linear;
-}
+/* .hue-range:focus::-webkit-slider-runnable-track {
+
+} */
 
 .hue-range::-moz-range-track {
     width: 100%;
@@ -70,8 +67,6 @@
     border-radius: .5rem;
     border: .25rem solid ivory;
     cursor: pointer;
-    filter: grayscale(75%);
-    transition: all 1.5s linear;
 }
 
 .hue-range::-moz-range-thumb {

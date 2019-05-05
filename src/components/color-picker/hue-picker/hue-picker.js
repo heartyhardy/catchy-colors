@@ -17,6 +17,7 @@ const HuePicker = props => (
             type="range"
             min="0"
             max="360"
+            onChange={props.valueChanged}
         />
 
         <p
