@@ -11,6 +11,7 @@ const ColorPicker = props => {
     const [hue, setHue] = useState(0);
     const [saturation, setSaturation] = useState(0);
     const [brightness, setBrightness] = useState(0);
+    const [priority, setPriority] = useState(1);
 
     const onHueChanged = event => {
         const val = event.target.value;
@@ -27,6 +28,11 @@ const ColorPicker = props => {
         setBrightness((val < 0 || val > 100) ? 0 : val);
     }
 
+    const onSelectPriority = event => {
+        const val = event.target.getAttribute("priority");
+        setPriority(val);
+    }
+
     return (
         <Aux
             className="color-picker-main"
@@ -36,7 +42,9 @@ const ColorPicker = props => {
                 hue={hue}
                 saturation={saturation}
                 brightness={brightness}
-                hexcolor="#2df3d0"
+                priority={1}
+                isActive={priority===1 ? true : false}
+                onSelectPriority={onSelectPriority}
             />
 
             <HuePicker

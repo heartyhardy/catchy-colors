@@ -13,10 +13,19 @@
     box-shadow: 0 .1rem .5rem #00000046;
 }
 
-.color-hex {
+.color-priority {
     font-family: 'Roboto Condensed', sans-serif;
     font-size: .75rem;
     font-weight: bold;
+    color: #02000f;
+    user-select: none;
+}
+
+.active{
+    color: orangered;
+}
+
+.inactive{
     color: #02000f;
 }
 

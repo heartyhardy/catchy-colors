@@ -17,7 +17,7 @@ const BrightnessPicker = props => (
             style={{
                 backgroundImage:`linear-gradient(
                     to left,
-                    hsl(${props.hue}, ${props.saturation}%, ${100}%),
+                    hsl(${props.hue}, ${props.saturation}%, ${50}%),
                     hsl(${props.hue}, ${props.saturation}%, ${0}%)
                 )`
             }}
