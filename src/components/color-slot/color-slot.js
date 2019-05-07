@@ -16,14 +16,18 @@ const ColorSlot = props => {
 
     return (
         <Aux
-            className="colorslot-main"
+            className={`colorslot-main ${props.isActive ? "active" : "inactive"}`}
             style={{
                 backgroundColor: `hsl(${props.hue},${props.saturation}%, ${props.brightness}%)`
             }}
         >
             <p
-                className={`color-priority ${props.isActive ? "active" : "inactive"}`}
+                className="color-priority"
                 priority={props.priority}
+                style={{
+                    color: `hsl(${props.hue},${props.saturation}%, ${props.brightness}%)`,
+                    filter:"invert(100%)"
+                }}
                 onClick={props.onSelectPriority}
             >
                 {getPriorityStr(props.priority)}

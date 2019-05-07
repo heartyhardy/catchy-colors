@@ -19,37 +19,60 @@
     font-weight: bold;
     color: #02000f;
     user-select: none;
+    cursor: pointer;
 }
 
-.active{
-    color: orangered;
+.active {
+    border: .5rem solid lightgoldenrodyellow;
+    box-shadow: 0 .15rem .5rem #ff7b0094;
+    transition: border .75s linear, box-shadow .75s linear;
 }
 
-.inactive{
-    color: #02000f;
+.inactive {
+    border: .5rem solid snow;
+    box-shadow: 0 .1rem .5rem #00000046;
+    transition: border .75s linear, box-shadow .75s linear;
 }
 
-@media only screen and (max-width:1024px){
-    .colorslot-main{
+@media only screen and (max-width:1024px) {
+    .colorslot-main {
         height: 10vh;
         width: 10vh;
         border-width: .45rem;
     }
-
-    .color-priority{
+    .color-priority {
         font-size: .65rem;
+    }
+    .active {
+        border: .5rem solid lightgoldenrodyellow;
+        box-shadow: 0 .15rem .5rem #ff7b0094;
+        transition: border .75s linear, box-shadow .75s linear;
+    }
+    .inactive {
+        border: .5rem solid snow;
+        box-shadow: 0 .1rem .5rem #00000046;
+        transition: border .75s linear, box-shadow .75s linear;
     }
 }
 
-@media only screen and (max-width:600px){
-    .colorslot-main{
+@media only screen and (max-width:600px) {
+    .colorslot-main {
         height: 8.5vh;
         width: 8.5vh;
         border-width: .35rem;
         box-shadow: 0 .1rem .3rem #00000046;
     }
-
-    .color-priority{
+    .color-priority {
         font-size: .5rem;
+    }
+    .active {
+        border: .5rem solid lightgoldenrodyellow;
+        box-shadow: 0 .15rem .5rem #ff7b0094;
+        transition: border .75s linear, box-shadow .75s linear;
+    }
+    .inactive {
+        border: .5rem solid snow;
+        box-shadow: 0 .1rem .5rem #00000046;
+        transition: border .75s linear, box-shadow .75s linear;
     }
 }
