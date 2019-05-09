@@ -1,0 +1,85 @@
+.gen-controls-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: calc(95% - 4rem);
+    height: auto;
+    padding: 1rem;
+    margin: 1rem 0 1rem 0;
+    justify-self: center;
+    border: .2rem solid #ececf1;
+    border-radius: 1rem 1rem .5rem .5rem;
+    background-color: #e8e8ee;
+}
+
+.gen-steps,
+.gen-algo
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: .75rem;
+}
+
+.gen-steps-label,
+.gen-algo-label
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: .75rem;
+    font-weight: bold;
+    text-align: center;
+    color: #02000f;
+}
+
+.gen-steps-input{
+    width: 2rem;
+    height: 1rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: .75rem;
+    font-weight: bold;
+    text-align: center;
+    color: #02000f;
+    background-color: gainsboro;
+    outline: none;
+    border-radius: .5rem;
+    border: .25rem solid ivory;
+    box-shadow: 0 .1rem .25rem #05001660;
+    margin-left: .5rem;
+}
+
+.gen-algo-select{
+    width: 4rem;
+    height: 2rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: .75rem;
+    font-weight: bold;
+    text-align: center;
+    color: #02000f;
+    background-color: gainsboro;
+    outline: none;
+    border-radius: .5rem;
+    border: .25rem solid ivory;
+    box-shadow: 0 .1rem .25rem #05001660;
+    margin-left: .5rem;
+}
+
+.gen-button{
+    width: 3rem;
+    height: 2rem;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: .75rem;
+    font-weight: bold;
+    text-align: center;
+    color: #02000f;
+    background-color: #ff9f4694;;
+    outline: none;
+    border-radius: .5rem;
+    border: .25rem solid snow;
+    box-shadow: 0 .1rem .5rem #00000046;
+    margin-left: .5rem;
+    user-select: none;
+    cursor: pointer;
+}

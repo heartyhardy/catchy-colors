@@ -5,6 +5,7 @@ import ColorSlots from '../color-slots/color-slots';
 import HuePicker from './hue-picker/hue-picker';
 import SaturationPicker from './saturation-picker/saturation-picker';
 import BrightnessPicker from './brightness-picker/brightness-picker';
+import GenControls from '../gen-controls/gen-controls';
 
 const ColorPicker = props => {
 
@@ -134,6 +135,8 @@ const ColorPicker = props => {
                 brightness={l}
                 valueChanged={onBrightnessChanged}
             />
+
+            <GenControls />
         </Aux>
     )
 }
