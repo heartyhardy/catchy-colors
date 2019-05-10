@@ -6,6 +6,7 @@ import HuePicker from './hue-picker/hue-picker';
 import SaturationPicker from './saturation-picker/saturation-picker';
 import BrightnessPicker from './brightness-picker/brightness-picker';
 import GenControls from '../gen-controls/gen-controls';
+import GenColors from '../gen-colors/gen-colors';
 
 const ColorPicker = props => {
 
@@ -137,6 +138,8 @@ const ColorPicker = props => {
             />
 
             <GenControls />
+
+            <GenColors />
         </Aux>
     )
 }

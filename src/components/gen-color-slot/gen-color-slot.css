@@ -1,0 +1,9 @@
+.gen-color-slot-main{
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: transparent;
+    border-radius: .4rem;
+    border: .175rem solid snow;
+    box-shadow: 0 .1rem .3rem #00000046;
+    cursor: pointer;
+}
