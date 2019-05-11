@@ -10,6 +10,7 @@ import GenColors from '../gen-colors/gen-colors';
 
 const ColorPicker = props => {
 
+    //Color related state hooks
     const [h, setH] = useState(0);
     const [s, setS] = useState(0);
     const [l, setL] = useState(0);
@@ -17,6 +18,10 @@ const ColorPicker = props => {
     const [primary, setPrimary] = useState({ h: 0, s: 0, l: 0 });
     const [secondary, setSecondary] = useState({ h: 0, s: 0, l: 0 });
     const [tertiary, setTertiary] = useState({ h: 0, s: 0, l: 0 });
+
+    //Gen control related state hooks
+    const [steps, setSteps] = useState(4);
+    const [algo, setAlgo] = useState("linear");
 
     useEffect(() => {
         getPreviousValues(priority.index);
@@ -107,6 +112,24 @@ const ColorPicker = props => {
         }
     }
 
+    const onStepsChanged = event => {
+        const val = Number(event.target.value);
+        setSteps((val > 3 && val < 11) ? val : 4);
+    }
+
+    const onAlgoChanged = event => {
+        const val = event.target.value;
+
+        switch(val)
+        {
+            case "linear":
+                setAlgo(val);
+            break;
+            default:
+                setAlgo("linear");
+        }
+    }
+
     return (
         <Aux
             className="color-picker-main"
@@ -137,7 +160,12 @@ const ColorPicker = props => {
                 valueChanged={onBrightnessChanged}
             />
 
-            <GenControls />
+            <GenControls
+                steps={steps}
+                algo={algo}
+                stepsChanged={onStepsChanged}
+                algoChanged={onAlgoChanged}
+            />
 
             <GenColors />
         </Aux>

@@ -7,6 +7,12 @@ const GenColors = props => (
     <Aux
         className="gen-colors-main"
     >
+        <p
+            className="gen-dark-caption"
+        >
+            Dark selection
+        </p>
+
         <div
             className="gen-colors-dark"
         >
@@ -18,6 +24,12 @@ const GenColors = props => (
             <GenColorSlot />
 
         </div>
+
+        <p
+            className="gen-dark-caption"
+        >
+            Light selection
+        </p>
 
         <div
             className="gen-colors-light"

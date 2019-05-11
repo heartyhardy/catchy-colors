@@ -21,7 +21,7 @@ const GenControls = props => (
                 min="4"
                 max="10"
                 value={props.steps}
-                onChange={props.valueChanged}
+                onChange={props.stepsChanged}
             />
 
         </span>
@@ -37,9 +37,11 @@ const GenControls = props => (
 
             <select
                 className="gen-algo-select"
+                value={props.algo}
+                onChange={props.algoChanged}
             >
                 <option
-                    value="0"
+                    value="linear"
                 >
                     linear
                 </option>
