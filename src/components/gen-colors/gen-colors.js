@@ -16,13 +16,16 @@ const GenColors = props => (
         <div
             className="gen-colors-dark"
         >
-            <GenColorSlot />
-            <GenColorSlot />
-            <GenColorSlot />
-            <GenColorSlot />
-            <GenColorSlot />
-            <GenColorSlot />
-
+            {
+                props.darkScheme.dark.map((swatch, index) => {
+                    return <GenColorSlot
+                        key={`dswatch${index}`}
+                        h={swatch.h}
+                        s={swatch.s}
+                        l={swatch.l}
+                    />    
+                })
+            }
         </div>
 
         <p

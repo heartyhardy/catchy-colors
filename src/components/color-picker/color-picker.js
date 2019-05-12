@@ -8,6 +8,8 @@ import BrightnessPicker from './brightness-picker/brightness-picker';
 import GenControls from '../gen-controls/gen-controls';
 import GenColors from '../gen-colors/gen-colors';
 
+import { genDarkScheme } from '../../services/color-gen-service/color-gen-service';
+
 const ColorPicker = props => {
 
     //Color related state hooks
@@ -19,9 +21,13 @@ const ColorPicker = props => {
     const [secondary, setSecondary] = useState({ h: 0, s: 0, l: 0 });
     const [tertiary, setTertiary] = useState({ h: 0, s: 0, l: 0 });
 
-    //Gen control related state hooks
+    // Gen control related state hooks
     const [steps, setSteps] = useState(4);
     const [algo, setAlgo] = useState("linear");
+
+    // Schemes
+    const [darkScheme, setDarkScheme] = useState({dark: []});
+    const [lightScheme, setLightScheme] = useState({light:[]});
 
     useEffect(() => {
         getPreviousValues(priority.index);
@@ -120,14 +126,21 @@ const ColorPicker = props => {
     const onAlgoChanged = event => {
         const val = event.target.value;
 
-        switch(val)
-        {
+        switch (val) {
             case "linear":
                 setAlgo(val);
-            break;
+                break;
             default:
                 setAlgo("linear");
         }
+    }
+
+    const onGenerate = event => {
+        const darkSwatches = { 
+            dark:genDarkScheme(primary, algo, steps)
+        };
+        console.log(darkSwatches);
+        setDarkScheme(darkSwatches);
     }
 
     return (
@@ -165,9 +178,13 @@ const ColorPicker = props => {
                 algo={algo}
                 stepsChanged={onStepsChanged}
                 algoChanged={onAlgoChanged}
+                onGenerate={onGenerate}
             />
 
-            <GenColors />
+            <GenColors
+                darkScheme={darkScheme}
+                lightScheme={lightScheme}
+            />
         </Aux>
     )
 }
