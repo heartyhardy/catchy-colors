@@ -11,3 +11,10 @@
     border-radius: 1rem 1rem .5rem .5rem;
     background-color: #e8e8ee;
 }
+
+@media only screen and (max-width: 600px){
+    .color-slots-main{
+        border: .15rem solid #ececf1;
+        border-radius: .75rem .75rem .25rem .25rem;
+    }
+}
