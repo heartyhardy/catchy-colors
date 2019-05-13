@@ -19,7 +19,7 @@ const GenControls = props => (
                 className="gen-steps-input"
                 type="number"
                 min="4"
-                max="10"
+                max="16"
                 value={props.steps}
                 onChange={props.stepsChanged}
             />

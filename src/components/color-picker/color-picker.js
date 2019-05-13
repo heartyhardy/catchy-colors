@@ -8,7 +8,7 @@ import BrightnessPicker from './brightness-picker/brightness-picker';
 import GenControls from '../gen-controls/gen-controls';
 import GenColors from '../gen-colors/gen-colors';
 
-import { genDarkScheme } from '../../services/color-gen-service/color-gen-service';
+import { genDarkScheme, genLightScheme } from '../../services/color-gen-service/color-gen-service';
 
 const ColorPicker = props => {
 
@@ -120,7 +120,7 @@ const ColorPicker = props => {
 
     const onStepsChanged = event => {
         const val = Number(event.target.value);
-        setSteps((val > 3 && val < 11) ? val : 4);
+        setSteps((val > 3 && val < 17) ? val : 4);
     }
 
     const onAlgoChanged = event => {
@@ -139,8 +139,12 @@ const ColorPicker = props => {
         const darkSwatches = { 
             dark:genDarkScheme(primary, algo, steps)
         };
-        console.log(darkSwatches);
+        const lightSwatches = {
+            light:genLightScheme(primary, algo, steps)
+        };
+
         setDarkScheme(darkSwatches);
+        setLightScheme(lightSwatches);
     }
 
     return (

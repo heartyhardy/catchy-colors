@@ -3,7 +3,8 @@
     height: 1.5rem;
     background-color: transparent;
     border-radius: .4rem;
-    border: .175rem solid snow;
+    border: .1rem solid snow;
+    margin-bottom: .25rem;
     box-shadow: 0 .1rem .3rem #00000046;
     cursor: pointer;
 }

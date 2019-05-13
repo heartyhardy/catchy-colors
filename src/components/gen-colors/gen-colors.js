@@ -37,13 +37,16 @@ const GenColors = props => (
         <div
             className="gen-colors-light"
         >
-            <GenColorSlot />
-            <GenColorSlot />
-            <GenColorSlot />
-            <GenColorSlot />
-            <GenColorSlot />
-            <GenColorSlot />
-            
+            {
+                props.lightScheme.light.map((swatch, index) => {
+                    return <GenColorSlot
+                        key={`lswatch${index}`}
+                        h={swatch.h}
+                        s={swatch.s}
+                        l={swatch.l}
+                    />    
+                })
+            }
         </div>
 
 
