@@ -49,7 +49,7 @@
     flex-direction: row;
     align-items: center;
     box-shadow: 0 .1rem .25rem #05001660;
-    background-image: linear-gradient(to left, red, yellow, orange, cyan, green, blue, violet);
+    background-image: linear-gradient(to right, red, yellow, orange, cyan, green, blue, violet);
     border-radius: .5rem;
     border: .25rem solid ivory;
     cursor: pointer;

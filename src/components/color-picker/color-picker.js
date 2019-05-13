@@ -26,68 +26,81 @@ const ColorPicker = props => {
     const [algo, setAlgo] = useState("linear");
 
     // Schemes
-    const [darkScheme, setDarkScheme] = useState({dark: []});
-    const [lightScheme, setLightScheme] = useState({light:[]});
+    const [darkScheme, setDarkScheme] = useState({ dark: [] });
+    const [lightScheme, setLightScheme] = useState({ light: [] });
 
     useEffect(() => {
         getPreviousValues(priority.index);
     }, [priority])
 
+    useEffect(() => {
+
+        switch (Number(priority.index)) {
+            case 1:
+                setPrimary(prev => ({ ...prev, h: h }));
+                break;
+            case 2:
+                setSecondary(prev => ({ ...prev, h: h }));
+                break;
+            case 3:
+                setTertiary(prev => ({ ...prev, h: h }));
+                break;
+            default:
+                throw new Error("Invalid value. Unexpected error occured!");
+        }
+
+    }, [h])
+
+    useEffect(() => {
+
+        switch (Number(priority.index)) {
+            case 1:
+                setPrimary(prev => ({ ...prev, s: s }));
+                break;
+            case 2:
+                setSecondary(prev => ({ ...prev, s: s }));
+                break;
+            case 3:
+                setTertiary(prev => ({ ...prev, s: s }));
+                break;
+            default:
+                throw new Error("Invalid value. Unexpected error occured!");
+        }
+
+    }, [s])
+
+    useEffect(() => {
+
+        switch (Number(priority.index)) {
+            case 1:
+                setPrimary(prev => ({ ...prev, l: l }));
+                break;
+            case 2:
+                setSecondary(prev => ({ ...prev, l: l }));
+                break;
+            case 3:
+                setTertiary(prev => ({ ...prev, l: l }));
+                break;
+            default:
+                throw new Error("Invalid value. Unexpected error occured!");
+        }
+
+    }, [l])
+
+
     const onHueChanged = event => {
         const val = event.target.value;
         setH((val < 0 || val > 360) ? 0 : val);
-
-        switch (Number(priority.index)) {
-            case 1:
-                setPrimary(prev => { return { ...prev, h: h } });
-                break;
-            case 2:
-                setSecondary(prev => { return { ...prev, h: h } });
-                break;
-            case 3:
-                setTertiary(prev => { return { ...prev, h: h } });
-                break;
-            default:
-                throw new Error("Invalid value. Unexpected error occured!");
-        }
     }
 
     const onSaturationChanged = event => {
-        const val = event.target.value;
+        const val = Number(event.target.value);
         setS((val < 0 || val > 100) ? 0 : val);
-
-        switch (Number(priority.index)) {
-            case 1:
-                setPrimary(prev => { return { ...prev, s: s } });
-                break;
-            case 2:
-                setSecondary(prev => { return { ...prev, s: s } });
-                break;
-            case 3:
-                setTertiary(prev => { return { ...prev, s: s } });
-                break;
-            default:
-                throw new Error("Invalid value. Unexpected error occured!");
-        }
     }
 
     const onBrightnessChanged = event => {
-        const val = event.target.value;
-        setL((val < 0 || val > 100) ? 0 : val);
-
-        switch (Number(priority.index)) {
-            case 1:
-                setPrimary(prev => { return { ...prev, l: l } });
-                break;
-            case 2:
-                setSecondary(prev => { return { ...prev, l: l } });
-                break;
-            case 3:
-                setTertiary(prev => { return { ...prev, l: l } });
-                break;
-            default:
-                throw new Error("Invalid value. Unexpected error occured!");
-        }
+        const val = Number(event.target.value);
+        setL((val < 0 || val > 100) ? 50 : val);
     }
 
     const onSelectPriority = event => {
@@ -136,11 +149,11 @@ const ColorPicker = props => {
     }
 
     const onGenerate = event => {
-        const darkSwatches = { 
-            dark:genDarkScheme(primary, algo, steps)
+        const darkSwatches = {
+            dark: genDarkScheme(primary, algo, steps)
         };
         const lightSwatches = {
-            light:genLightScheme(primary, algo, steps)
+            light: genLightScheme(primary, algo, steps)
         };
 
         setDarkScheme(darkSwatches);
