@@ -44,8 +44,8 @@ const genLinearLightScheme = (color, steps, cutoff) => {
     const lightSwatches = [];
 
     for (let i = 1; i <= steps; i++) {
-        let h = ((hueReigonMax + hue_nudge * i) > 360) ?
-            (hue_nudge * i) :
+        let h = ((hueReigonMax + hue_nudge * i) > HUE_MAX) ?
+            (hueReigonMax + hue_nudge * i)-HUE_MAX :
             (hueReigonMax + hue_nudge * i);
 
         let s = ((satRegionMax - sat_nudge * i) < cutoff) ?
