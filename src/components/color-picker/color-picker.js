@@ -29,8 +29,18 @@ const ColorPicker = props => {
     const [darkScheme, setDarkScheme] = useState({ dark: [] });
     const [lightScheme, setLightScheme] = useState({ light: [] });
 
+    const [darkSchemeP, setDarkSchemeP] = useState({ dark: [] });
+    const [lightSchemeP, setLightSchemeP] = useState({ light: [] });
+
+    const [darkSchemeS, setDarkSchemeS] = useState({ dark: [] });
+    const [lightSchemeS, setLightSchemeS] = useState({ light: [] });
+
+    const [darkSchemeT, setDarkSchemeT] = useState({ dark: [] });
+    const [lightSchemeT, setLightSchemeT] = useState({ light: [] });
+
     useEffect(() => {
-        getPreviousValues(priority.index);
+        getPreviousValues();
+        getCurrentScheme();
     }, [priority])
 
     useEffect(() => {
@@ -87,6 +97,18 @@ const ColorPicker = props => {
 
     }, [l])
 
+    useEffect(() => {
+        getCurrentScheme();
+    },[darkSchemeP, lightSchemeP])
+
+    useEffect(() => {
+        getCurrentScheme();
+    },[darkSchemeS, lightSchemeS])
+
+    useEffect(() => {
+        getCurrentScheme();
+    },[darkSchemeT, lightSchemeT])
+
 
     const onHueChanged = event => {
         const val = event.target.value;
@@ -131,6 +153,25 @@ const ColorPicker = props => {
         }
     }
 
+    const getCurrentScheme = () => {
+        switch (Number(priority.index)) {
+            case 1:
+                setDarkScheme(darkSchemeP);
+                setLightScheme(lightSchemeP);
+                break;
+            case 2:
+                setDarkScheme(darkSchemeS);
+                setLightScheme(lightSchemeS);
+                break;
+            case 3:
+                setDarkScheme(darkSchemeT);
+                setLightScheme(lightSchemeT);
+                break;
+            default:
+                throw new Error("Invalid value. Unexpected error occured!");
+        }
+    }
+
     const onStepsChanged = event => {
         const val = Number(event.target.value);
         setSteps((val > 3 && val < 17) ? val : 4);
@@ -149,15 +190,45 @@ const ColorPicker = props => {
     }
 
     const onGenerate = event => {
-        const darkSwatches = {
-            dark: genDarkScheme(primary, algo, steps)
-        };
-        const lightSwatches = {
-            light: genLightScheme(primary, algo, steps)
-        };
 
-        setDarkScheme(darkSwatches);
-        setLightScheme(lightSwatches);
+        switch (Number(priority.index)) {
+            case 1:
+                const darkSwatchesP = {
+                    dark: genDarkScheme(primary, algo, steps)
+                };
+                const lightSwatchesP = {
+                    light: genLightScheme(primary, algo, steps)
+                };
+
+                setDarkSchemeP(darkSwatchesP);
+                setLightSchemeP(lightSwatchesP);
+                break;
+            case 2:
+                const darkSwatchesS = {
+                    dark: genDarkScheme(secondary, algo, steps)
+                };
+                const lightSwatchesS = {
+                    light: genLightScheme(secondary, algo, steps)
+                };
+
+                setDarkSchemeS(darkSwatchesS);
+                setLightSchemeS(lightSwatchesS);
+                break;
+            case 3:
+                const darkSwatchesT = {
+                    dark: genDarkScheme(tertiary, algo, steps)
+                };
+                const lightSwatchesT = {
+                    light: genLightScheme(tertiary, algo, steps)
+                };
+
+                setDarkSchemeT(darkSwatchesT);
+                setLightSchemeT(lightSwatchesT);
+                break;
+            default:
+                throw new Error("Invalid value. Unexpected error occured!");
+        }
+
     }
 
     return (
